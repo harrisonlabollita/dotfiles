@@ -1,0 +1,41 @@
+set nu
+set relativenumber
+map tt <C-W>w
+map - <C-W><
+map = <C-W>>
+let mapleader = " "
+let vim_markdown_preview_github=1
+
+function! MarkIncomplete()
+	normal! 0f[lR 
+endfunction
+nnoremap <leader>xx :call MarkIncomplete()<cr>
+function! MarkComplete()
+	normal! 0f[lRx
+endfunction
+nnoremap <leader>x :call MarkComplete()<cr>
+
+
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+
+Plug 'JuliaEditorSupport/julia-vim'
+
+Plug 'lervag/vimtex'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'tpope/vim-markdown'
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'JamshedVesuna/vim-markdown-preview'
+
+Plug 'preservim/nerdtree'
+
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
