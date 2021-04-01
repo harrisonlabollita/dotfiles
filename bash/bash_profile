@@ -1,0 +1,49 @@
+
+# Setting PATH for Python 3.5
+# The original version is saved in .bash_profile.pysave
+#PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+#export PATH
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+#PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+#export PATH
+
+##
+# Your previous /Users/harrisonlabollita/.bash_profile file was backed up as /Users/harrisonlabollita/.bash_profile.macports-saved_2018-12-12_at_07:23:51
+##
+
+# MacPorts Installer addition on 2018-12-12_at_07:23:51: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+#Adding my custom bash scripts
+source ~/.my_custom_commands.sh
+
+export CLICOLOR=1
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+#####XCrySDen#######
+export XCRYSDEN_TOPDIR=/opt/local/share/xcrysden-1.5.60
+export XCRYSDEN_SCRATCH=/tmp
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/harrisonlabollita/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/harrisonlabollita/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/harrisonlabollita/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/harrisonlabollita/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+if [[ -n $TMUX  ]]; then 
+	conda deactivate
+	conda activate fermi
+fi
