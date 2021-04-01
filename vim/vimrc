@@ -6,6 +6,7 @@ map = <C-W>>
 let mapleader = " "
 let vim_markdown_preview_github=1
 
+" Functions to mark tasks complete and incomplete
 function! MarkIncomplete()
 	normal! 0f[lR 
 endfunction
