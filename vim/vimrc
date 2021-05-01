@@ -1,10 +1,18 @@
 set nu
+syntax off 
 set relativenumber
 map tt <C-W>w
 map - <C-W><
 map = <C-W>>
 let mapleader = " "
 let vim_markdown_preview_github=1
+
+
+"===== [ make 81st column stand out ] ===========
+"Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
 
 " Functions to mark tasks complete and incomplete
 function! MarkIncomplete()
@@ -20,30 +28,19 @@ nnoremap <leader>x :call MarkComplete()<cr>
 "============== [ ALE ] ==================
 let g:airline#extensions#ale#enabled = 1
 
-
-
-
+"============== [ vim-plug ] ==================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-
 Plug 'JuliaEditorSupport/julia-vim'
-
 Plug 'lervag/vimtex'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'tpope/vim-markdown'
 Plug 'nelstrom/vim-markdown-folding'
-Plug 'JamshedVesuna/vim-markdown-preview'
-
-Plug 'preservim/nerdtree'
-
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-
 call plug#end()
