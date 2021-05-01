@@ -27,7 +27,9 @@ function makepdf() {
 }
 
 function agave() {
-  ssh hlabolli@agave.asu.edu
+  disconnect
+  connect
+  sshpass -p 'hlabollita0219!!' ssh hlabolli@agave.asu.edu
 }
 
 function wolfram() {
@@ -52,7 +54,7 @@ function ta() {
 }
 
 function connect() {
-    ~/../../opt/cisco/anyconnect/bin/vpn -s connect sslvpn.asu.edu
+    ~/../../opt/cisco/anyconnect/bin/vpn -s < .login_info
 }
 
 function disconnect() {
