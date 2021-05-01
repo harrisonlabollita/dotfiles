@@ -4,7 +4,6 @@ map tt <C-W>w
 map - <C-W><
 map = <C-W>>
 let mapleader = " "
-syntax off 
 
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
