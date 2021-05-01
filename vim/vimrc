@@ -1,12 +1,10 @@
 set nu
-syntax off 
 set relativenumber
 map tt <C-W>w
 map - <C-W><
 map = <C-W>>
 let mapleader = " "
-let vim_markdown_preview_github=1
-
+syntax off 
 
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
@@ -36,11 +34,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-markdown'
-Plug 'nelstrom/vim-markdown-folding'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 call plug#end()
