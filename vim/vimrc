@@ -23,6 +23,11 @@ nnoremap <leader>x :call MarkComplete()<cr>
 
 
 "============== [ ALE ] ==================
+
+let g:ale_set_loclist 		     = 0
+let g:ale_set_quickfix		     = 1
+let g:ale_set_signs		     = 0
+let g:ale_linters = {'python' : ['flake8']}
 let g:airline#extensions#ale#enabled = 1
 
 "============== [ vim-plug ] ==================
@@ -38,3 +43,5 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 call plug#end()
+
+syntax off
