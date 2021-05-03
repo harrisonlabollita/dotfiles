@@ -21,13 +21,42 @@ function! MarkComplete()
 endfunction
 nnoremap <leader>x :call MarkComplete()<cr>
 
+function! AskQuit (msg, options, quit_option)
+	if confirm(a:msg, a:options) == a:quit_option
+		silent q!
+	endif
+endfunction
+
+function! EnsureDirExists ()
+	let required_dir = expand("%:h")
+	if !isdirectory(required_dir)
+		call AskQuit("Parent directory '" . required_dir . "' doesn't exist.",
+		     \       "&Create it\nor &Quit?", 2)
+		try
+			call mkdir( required_dir, 'p' )
+		catch
+			call AskQuit("Can't create '" . required_dir . "'",
+			     \       "&Quit\nor &Continue anyway?", 1)
+		endtry
+	endif
+endfunction
+
+augroup AutoMkdir
+	autocmd!
+	autocmd BufNewFile * :call EnsureDirExists()
+augroup END
 
 "============== [ ALE ] ==================
-
+highlight AleError 	ctermfg=red	cterm=bold
+highlight AleWarning 	ctermfg=magenta cterm=bold
 let g:ale_set_loclist 		     = 0
 let g:ale_set_quickfix		     = 1
 let g:ale_set_signs		     = 0
-let g:ale_linters = {'python' : ['flake8']}
+let g:ale_linters = {
+		\ 'python' : ['flake8'], 
+		\     'latex'  : ['chktex'],
+		\     'tex'    : ['all']
+		\}
 let g:airline#extensions#ale#enabled = 1
 
 "============== [ vim-plug ] ==================
