@@ -13,11 +13,19 @@ nnoremap <C-p> :bp<CR>
 set hlsearch
 hi Search ctermbg=LightBlue
 
+
+nnoremap go :!open <cfile><CR>
+
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+"highlight ColorColumn ctermbg=magenta
+"call matchadd('ColorColumn', '\%81v', 100)
 
+"===== [ syntax highlighting for markdown ] ===========
+augroup DiffHighlight
+	autocmd!
+	autocmd BufEnter *.md syntax enable
+augroup END
 
 " Functions to mark tasks complete and incomplete
 function! MarkIncomplete()
