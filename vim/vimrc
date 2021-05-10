@@ -13,7 +13,6 @@ nnoremap <C-p> :bp<CR>
 set hlsearch
 hi Search ctermbg=LightBlue
 
-
 nnoremap go :!open <cfile><CR>
 
 "===== [ make 81st column stand out ] ===========
