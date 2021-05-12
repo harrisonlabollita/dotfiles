@@ -5,6 +5,8 @@ map - <C-W><
 map = <C-W>>
 let mapleader = " "
 
+
+
 nnoremap ; :
 nnoremap : ;
 
@@ -23,7 +25,7 @@ call matchadd('ColorColumn', '\%81v', 100)
 "===== [ syntax highlighting for markdown ] ===========
 augroup DiffHighlight
 	autocmd!
-	autocmd BufEnter *.md, *.jl syntax enable
+	autocmd BufEnter *.py syntax off
 augroup END
 
 " Functions to mark tasks complete and incomplete
@@ -86,6 +88,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
+Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
-syntax off
