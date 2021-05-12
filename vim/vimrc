@@ -6,7 +6,6 @@ map = <C-W>>
 let mapleader = " "
 
 
-
 nnoremap ; :
 nnoremap : ;
 
@@ -88,6 +87,5 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
