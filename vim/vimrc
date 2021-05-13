@@ -21,11 +21,13 @@ nnoremap go :!open <cfile><CR>
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
-"===== [ syntax highlighting for markdown ] ===========
+"===== [ syntax highlighting off for markdown ] ===========
 augroup DiffHighlight
 	autocmd!
-	autocmd BufEnter *.py syntax off
+	autocmd BufEnter *.md syntax enable
 augroup END
+
+highlight Comment term=bold cterm=italic ctermfg=white gui=italic guifg=white
 
 " Functions to mark tasks complete and incomplete
 function! MarkIncomplete()
@@ -89,3 +91,4 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 call plug#end()
 
+syntax off
