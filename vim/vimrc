@@ -5,6 +5,9 @@ map - <C-W><
 map = <C-W>>
 let mapleader = " "
 
+set title
+
+imap <S-TAB> <C-p>
 
 nnoremap ; :
 nnoremap : ;
