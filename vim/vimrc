@@ -30,7 +30,7 @@ augroup DiffHighlight
 	autocmd BufEnter *.md syntax enable
 augroup END
 
-highlight Comment term=bold cterm=italic ctermfg=white gui=italic guifg=white
+highlight Comment cterm=bold ctermfg=white
 
 " Functions to mark tasks complete and incomplete
 function! MarkIncomplete()
