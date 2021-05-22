@@ -21,7 +21,7 @@ nnoremap go :!open <cfile><CR>
 
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
-highlight ColorColumn ctermbg=magenta
+highlight ColorColumn ctermbg=black
 call matchadd('ColorColumn', '\%81v', 100)
 
 "===== [ syntax highlighting off for markdown ] ===========
@@ -30,7 +30,13 @@ augroup DiffHighlight
 	autocmd BufEnter *.md syntax enable
 augroup END
 
-highlight Comment cterm=bold ctermfg=white
+"==========[ spell checking ] =====================
+set spelllang=en
+highlight SpellBad cterm=bold ctermfg=red ctermbg=black
+augroup DiffSpellCheck
+	autocmd!
+	autocmd BufEnter *.md,*.tex set spell
+augroup END
 
 " Functions to mark tasks complete and incomplete
 function! MarkIncomplete()
