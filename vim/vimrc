@@ -1,16 +1,21 @@
+
 set nu
 set relativenumber
+let mapleader = " "
+
+"===== [ switch back and forth between vim windows ] ===========
 map tt <C-W>w
+
+"===== [ map window adjust to +(-) ] ===========
 map - <C-W><
 map = <C-W>>
-let mapleader = " "
 
 set title
 
 "===== [ smarter tab ] ===========
 function! InsertTabWrapper()
 	let col = col('.') - 1
-	if !col || getline('.')[col = 1] !~ '\k'
+	if !col || getline('.')[col - 1] !~ '\k'
 		return "\<TAB>"
 	else
 		return "\<C-p>"
@@ -18,9 +23,24 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <TAB> InsertTabWrapper()
 
+"===== [ never press Shift+; again] ===========
 nnoremap ; :
 nnoremap : ;
 
+augroup AutoProfile
+	au!
+	autocmd BufEnter *	call s:ChangeProfile("editor")
+	autocmd VimLeave * 	call s:ChangeProfile("default")
+augroup END
+
+function! s:ChangeProfile (name)
+	let name = a:name
+	if name == "editor"
+		silent exec "! osascript ~/.vim/bin/editor_profile.scpt"
+	elseif name == "default"
+		silent exec "! osascript ~/.vim/bin/default_profile.scpt"
+	endif
+endfunction
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -38,7 +58,6 @@ nnoremap go :!open <cfile><CR>
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
 highlight ColorColumn ctermbg=black
 call matchadd('ColorColumn', '\%81v', 100)
-
 
 
 "==========[ spell checking ] =====================
