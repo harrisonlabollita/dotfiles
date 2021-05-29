@@ -11,6 +11,13 @@ map = <C-W>>
 
 set title
 
+"======[auto reload]=======
+autocmd! bufwritepost .vimrc source %
+
+"======[ better clipboard] =======
+set clipboard=unnamed
+
+
 "===== [ smarter tab ] ===========
 function! InsertTabWrapper()
 	let col = col('.') - 1
