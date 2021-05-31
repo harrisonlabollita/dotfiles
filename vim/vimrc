@@ -1,6 +1,5 @@
-
-set nu
-set relativenumber
+set nonumber
+set norelativenumber
 let mapleader = " "
 
 "===== [ switch back and forth between vim windows ] ===========
@@ -11,6 +10,13 @@ map - <C-W><
 map = <C-W>>
 
 set title
+
+"======[auto reload]=======
+autocmd! bufwritepost .vimrc source %
+
+"======[ better clipboard] =======
+set clipboard=unnamed
+
 
 "===== [ smarter tab ] ===========
 function! InsertTabWrapper()
@@ -93,7 +99,7 @@ let g:ale_linters = {
 		\     'tex'    : ['all']
 		\}
 let g:airline#extensions#ale#enabled = 1
-
+let g:airline_theme='term'
 "============== [ vim-plug ] ==================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
