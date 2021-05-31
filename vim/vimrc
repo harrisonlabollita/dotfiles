@@ -1,41 +1,61 @@
+
 set nu
 set relativenumber
-map tt <C-W>w
-map - <C-W><
-map = <C-W>>
 let mapleader = " "
 
+"===== [ switch back and forth between vim windows ] ===========
+map tt <C-W>w
+
+"===== [ map window adjust to +(-) ] ===========
+map - <C-W><
+map = <C-W>>
+
+set title
+
+"===== [ smarter tab ] ===========
+function! InsertTabWrapper()
+	let col = col('.') - 1
+	if !col || getline('.')[col - 1] !~ '\k'
+		return "\<TAB>"
+	else
+		return "\<C-p>"
+	endif
+endfunction
+inoremap <expr> <TAB> InsertTabWrapper()
+
+"===== [ never press Shift+; again] ===========
 nnoremap ; :
 nnoremap : ;
 
+highlight ColorColumn ctermbg=black
+
+"===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
+
+"===== [ highlight search color ] ===========
 set hlsearch
 hi Search ctermbg=LightBlue
 
+
+"===== [ map go to open files underneath the cursor ] ===========
 nnoremap go :!open <cfile><CR>
 
-"===== [ make 81st column stand out ] ===========
-"Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
-highlight ColorColumn ctermbg=Black
-"call matchadd('ColorColumn', '\%81v', 100)
 
-"===== [ syntax highlighting for markdown ] ===========
-augroup DiffHighlight
+"==========[ spell checking ] =====================
+"spell check only if its a file that I care to get the words
+"spelled correctly in
+
+set spelllang=en
+highlight SpellBad cterm=bold ctermfg=red ctermbg=black
+augroup DiffSpellCheck
 	autocmd!
-	autocmd BufEnter *.md syntax enable
+	autocmd BufEnter *.md,*.tex set spell
 augroup END
 
-" Functions to mark tasks complete and incomplete
-function! MarkIncomplete()
-	normal! 0f[lR 
-endfunction
-nnoremap <leader>xx :call MarkIncomplete()<cr>
-function! MarkComplete()
-	normal! 0f[lRx
-endfunction
-nnoremap <leader>x :call MarkComplete()<cr>
 
+
+"==========[ Make a new file without worrying ] =====================
 function! AskQuit (msg, options, quit_option)
 	if confirm(a:msg, a:options) == a:quit_option
 		silent q!

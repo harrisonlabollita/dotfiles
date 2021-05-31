@@ -21,7 +21,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 source ~/.my_custom_commands.sh
 
 export CLICOLOR=1
-
+export GREP_OPTIONS='--color=always' 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #####XCrySDen#######
