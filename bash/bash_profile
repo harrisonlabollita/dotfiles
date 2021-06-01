@@ -23,7 +23,7 @@ source ~/.my_custom_commands.sh
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always' 
 export BASH_SILENCE_DEPRECATION_WARNING=1
-
+export PS1="[\w] "
 #####XCrySDen#######
 export XCRYSDEN_TOPDIR=/opt/local/share/xcrysden-1.5.60
 export XCRYSDEN_SCRATCH=/tmp

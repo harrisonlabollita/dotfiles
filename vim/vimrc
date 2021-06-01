@@ -33,20 +33,20 @@ inoremap <expr> <TAB> InsertTabWrapper()
 nnoremap ; :
 nnoremap : ;
 
-augroup AutoProfile
-	au!
-	autocmd BufEnter *	call s:ChangeProfile("editor")
-	autocmd VimLeave * 	call s:ChangeProfile("default")
-augroup END
+"augroup AutoProfile
+"	au!
+"	autocmd BufEnter *	call s:ChangeProfile("editor")
+"	autocmd VimLeave * 	call s:ChangeProfile("default")
+"augroup END
 
-function! s:ChangeProfile (name)
-	let name = a:name
-	if name == "editor"
-		silent exec "! osascript ~/.vim/bin/editor_profile.scpt"
-	elseif name == "default"
-		silent exec "! osascript ~/.vim/bin/default_profile.scpt"
-	endif
-endfunction
+"function! s:ChangeProfile (name)
+"	let name = a:name
+"	if name == "editor"
+"		silent exec "! osascript ~/.vim/bin/editor_profile.scpt"
+"	elseif name == "default"
+"		silent exec "! osascript ~/.vim/bin/default_profile.scpt"
+"	endif
+"endfunction
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
