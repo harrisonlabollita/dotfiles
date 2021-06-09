@@ -11,13 +11,16 @@ map = <C-W>>
 
 set title
 
+"======[set backgroun dark makes tmux pretty]=======
+set background=dark
+
 "======[auto reload]=======
 autocmd! bufwritepost .vimrc source %
 
 "======[ better clipboard] =======
 set clipboard=unnamed
 
-
+let g:latex_to_unicode_file_types = ".*"
 "===== [ smarter tab ] ===========
 function! InsertTabWrapper()
 	let col = col('.') - 1
@@ -47,6 +50,11 @@ nnoremap : ;
 "		silent exec "! osascript ~/.vim/bin/default_profile.scpt"
 "	endif
 "endfunction
+
+"===== [ syntax Highlight for Markdown ] ===========
+augroup SyntaxHighlighting
+	autocmd BufEnter *.md 	syntax enable
+augroup END
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
