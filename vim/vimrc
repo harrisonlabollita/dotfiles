@@ -51,10 +51,12 @@ nnoremap : ;
 "	endif
 "endfunction
 
-"===== [ syntax Highlight for Markdown ] ===========
-augroup SyntaxHighlighting
-	autocmd BufEnter *.md 	syntax enable
-augroup END
+"===== [ syntax Highlighting] ===========
+syntax enable
+colorscheme harry
+"augroup SyntaxHighlighting
+"	autocmd BufEnter *.py, *.jl
+"augroup END
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -143,5 +145,3 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 call plug#end()
-
-syntax off
