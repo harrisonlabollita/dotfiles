@@ -70,8 +70,8 @@ nnoremap go :!open <cfile><CR>
 
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
-highlight ColorColumn ctermbg=black
-call matchadd('ColorColumn', '\%81v', 100)
+"highlight ColorColumn ctermbg=black
+"call matchadd('ColorColumn', '\%81v', 100)
 
 
 "==========[ spell checking ] =====================
@@ -114,8 +114,8 @@ augroup AutoMkdir
 augroup END
 
 "============== [ ALE ] ==================
-highlight AleError 	ctermfg=red	cterm=bold
-highlight AleWarning 	ctermfg=magenta cterm=bold
+highlight AleErrorLine 	ctermfg=red     cterm=bold
+highlight AleWarning 	ctermfg=magenta ctermbg=white     cterm=bold
 let g:ale_set_loclist 		     = 0
 let g:ale_set_quickfix		     = 1
 let g:ale_set_signs		     = 0
@@ -124,6 +124,10 @@ let g:ale_linters = {
 		\     'latex'  : ['chktex'],
 		\     'tex'    : ['all']
 		\}
+
+let g:ale_python_flake8_options = '--ignore=E501,E402'
+
+"================== [ AIRLINE ] =================
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='term'
 "============== [ vim-plug ] ==================
