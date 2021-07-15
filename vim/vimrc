@@ -11,13 +11,16 @@ map = <C-W>>
 
 set title
 
+"======[set backgroun dark makes tmux pretty]=======
+set background=dark
+
 "======[auto reload]=======
 autocmd! bufwritepost .vimrc source %
 
 "======[ better clipboard] =======
 set clipboard=unnamed
 
-
+let g:latex_to_unicode_file_types = ".*"
 "===== [ smarter tab ] ===========
 function! InsertTabWrapper()
 	let col = col('.') - 1
@@ -33,7 +36,27 @@ inoremap <expr> <TAB> InsertTabWrapper()
 nnoremap ; :
 nnoremap : ;
 
-highlight ColorColumn ctermbg=black
+"augroup AutoProfile
+"	au!
+"	autocmd BufEnter *	call s:ChangeProfile("editor")
+"	autocmd VimLeave * 	call s:ChangeProfile("default")
+"augroup END
+
+"function! s:ChangeProfile (name)
+"	let name = a:name
+"	if name == "editor"
+"		silent exec "! osascript ~/.vim/bin/editor_profile.scpt"
+"	elseif name == "default"
+"		silent exec "! osascript ~/.vim/bin/default_profile.scpt"
+"	endif
+"endfunction
+
+"===== [ syntax Highlighting] ===========
+syntax enable
+colorscheme harry
+"augroup SyntaxHighlighting
+"	autocmd BufEnter *.py, *.jl
+"augroup END
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -46,6 +69,11 @@ hi Search ctermbg=LightBlue
 
 "===== [ map go to open files underneath the cursor ] ===========
 nnoremap go :!open <cfile><CR>
+
+"===== [ make 81st column stand out ] ===========
+"Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
+"highlight ColorColumn ctermbg=black
+"call matchadd('ColorColumn', '\%81v', 100)
 
 
 "==========[ spell checking ] =====================
@@ -88,8 +116,8 @@ augroup AutoMkdir
 augroup END
 
 "============== [ ALE ] ==================
-highlight AleError 	ctermfg=red	cterm=bold
-highlight AleWarning 	ctermfg=magenta cterm=bold
+highlight AleErrorLine 	        ctermfg=red      cterm=bold
+highlight AleWarningLine 	ctermfg=magenta  cterm=bold
 let g:ale_set_loclist 		     = 0
 let g:ale_set_quickfix		     = 1
 let g:ale_set_signs		     = 0
@@ -98,6 +126,10 @@ let g:ale_linters = {
 		\     'latex'  : ['chktex'],
 		\     'tex'    : ['all']
 		\}
+
+let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E266,E501'
+
+"================== [ AIRLINE ] =================
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='term'
 "============== [ vim-plug ] ==================
@@ -113,5 +145,3 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 call plug#end()
-
-syntax off
