@@ -72,7 +72,7 @@ nnoremap go :!open <cfile><CR>
 
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
-"highlight ColorColumn ctermbg=black
+highlight ColorColumn ctermbg=NONE
 "call matchadd('ColorColumn', '\%81v', 100)
 
 
@@ -131,7 +131,7 @@ let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E266,E501'
 
 "================== [ AIRLINE ] =================
 let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='term'
+"let g:airline_theme='term'
 "============== [ vim-plug ] ==================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
