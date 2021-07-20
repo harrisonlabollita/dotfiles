@@ -52,11 +52,9 @@ nnoremap : ;
 "endfunction
 
 "===== [ syntax Highlighting] ===========
-syntax enable
-colorscheme harry
-"augroup SyntaxHighlighting
-"	autocmd BufEnter *.py, *.jl
-"augroup END
+augroup SyntaxHighlighting
+	autocmd BufEnter * colorscheme harry
+augroup END
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -73,7 +71,6 @@ nnoremap go :!open <cfile><CR>
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
 highlight ColorColumn ctermbg=NONE
-"call matchadd('ColorColumn', '\%81v', 100)
 
 
 "==========[ spell checking ] =====================
@@ -115,6 +112,12 @@ augroup AutoMkdir
 	autocmd BufNewFile * :call EnsureDirExists()
 augroup END
 
+"============= [ Julia format ] ============
+augroup JuliaSyntax
+	autocmd BufEnter *.jl set softtabstop=4
+augroup END
+
+
 "============== [ ALE ] ==================
 highlight AleErrorLine 	        ctermfg=red      cterm=bold
 highlight AleWarningLine 	ctermfg=magenta  cterm=bold
@@ -126,7 +129,6 @@ let g:ale_linters = {
 		\     'latex'  : ['chktex'],
 		\     'tex'    : ['all']
 		\}
-
 let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E266,E501'
 
 "================== [ AIRLINE ] =================
