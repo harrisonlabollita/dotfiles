@@ -133,7 +133,6 @@ let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E266,E501'
 
 "================== [ AIRLINE ] =================
 let g:airline#extensions#ale#enabled = 1
-"let g:airline_theme='term'
 "============== [ vim-plug ] ==================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
