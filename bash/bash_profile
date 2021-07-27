@@ -20,6 +20,9 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 #Adding my custom bash scripts
 source ~/.my_custom_commands.sh
 
+#source intel compilers
+source /opt/intel/oneapi/setvars.sh
+
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always' 
 export BASH_SILENCE_DEPRECATION_WARNING=1
