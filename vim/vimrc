@@ -52,10 +52,8 @@ nnoremap : ;
 
 "===== [ syntax Highlighting] ===========
 syntax on
-colorscheme peachpuff
-highlight Comment ctermfg=green cterm=bold 
-"highlight Normal  ctermfg=White	
-"highlight String  ctermfg=White      
+let g:github_colors_soft = 1
+colorscheme github
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -121,7 +119,7 @@ augroup END
 
 "============== [ ALE ] ==================
 highlight AleErrorLine      cterm=bold  ctermfg=red 
-highlight AleWarningLine    cterm=bold  ctermfg=LightYellow
+highlight AleWarningLine    cterm=bold  ctermfg=magenta
 let g:ale_set_loclist 		     = 0
 let g:ale_set_quickfix		     = 1
 let g:ale_set_signs		     = 0
@@ -133,7 +131,9 @@ let g:ale_linters = {
 let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E265,E266,E501'
 
 "================== [ AIRLINE ] =================
-"let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_theme = "github"
+
 "============== [ vim-plug ] ==================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -146,4 +146,5 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
+Plug 'cormacrelf/vim-colors-github'
 call plug#end()
