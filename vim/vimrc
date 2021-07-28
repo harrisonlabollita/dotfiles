@@ -10,6 +10,7 @@ map - <C-W><
 map = <C-W>>
 
 set title
+set number
 
 "======[set backgroun dark makes tmux pretty]=======
 set background=dark
@@ -131,8 +132,8 @@ let g:ale_linters = {
 let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E265,E266,E501'
 
 "================== [ AIRLINE ] =================
-let g:airline#extensions#ale#enabled = 1
-let g:airline_theme = "github"
+"let g:airline#extensions#ale#enabled = 1
+"let g:airline_theme = "github"
 
 "============== [ vim-plug ] ==================
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -142,8 +143,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'cormacrelf/vim-colors-github'
