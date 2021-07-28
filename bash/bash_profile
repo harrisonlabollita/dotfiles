@@ -21,7 +21,10 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 source ~/.my_custom_commands.sh
 
 #source intel compilers
-source /opt/intel/oneapi/setvars.sh
+function intel() {
+	echo 'sourcing intel compilers: ifort and icc'
+	source /opt/intel/oneapi/setvars.sh
+}
 
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always' 
