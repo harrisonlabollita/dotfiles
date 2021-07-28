@@ -51,9 +51,11 @@ nnoremap : ;
 "endfunction
 
 "===== [ syntax Highlighting] ===========
-augroup SyntaxHighlighting
-	autocmd BufEnter * colorscheme harry
-augroup END
+syntax on
+colorscheme peachpuff
+highlight Comment ctermfg=green cterm=bold 
+"highlight Normal  ctermfg=White	
+"highlight String  ctermfg=White      
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -118,8 +120,8 @@ augroup END
 
 
 "============== [ ALE ] ==================
-highlight AleErrorLine cterm=bold  ctermbg=red      ctermfg=white
-highlight AleWarningLine    cterm=bold  ctermbg=magenta  ctermfg=white
+highlight AleErrorLine      cterm=bold  ctermfg=red 
+highlight AleWarningLine    cterm=bold  ctermfg=LightYellow
 let g:ale_set_loclist 		     = 0
 let g:ale_set_quickfix		     = 1
 let g:ale_set_signs		     = 0
