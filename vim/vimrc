@@ -55,6 +55,7 @@ nnoremap : ;
 syntax on
 let g:github_colors_soft = 1
 colorscheme github
+highlight Comment cterm=bold
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
