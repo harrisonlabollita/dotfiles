@@ -54,7 +54,7 @@ nnoremap : ;
 "===== [ syntax Highlighting] ===========
 syntax on
 colorscheme harry
-highlight LineNr ctermfg=grey
+highlight LineNr ctermfg=white
 "let g:github_colors_soft = 1
 "highlight Comment cterm=bold
 
@@ -145,8 +145,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'JuliaEditorSupport/julia-vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'cormacrelf/vim-colors-github'
