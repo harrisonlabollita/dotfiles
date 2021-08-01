@@ -53,9 +53,10 @@ nnoremap : ;
 
 "===== [ syntax Highlighting] ===========
 syntax on
-let g:github_colors_soft = 1
-colorscheme github
-highlight Comment cterm=bold
+colorscheme harry
+highlight LineNr ctermfg=grey
+"let g:github_colors_soft = 1
+"highlight Comment cterm=bold
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
