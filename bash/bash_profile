@@ -26,6 +26,21 @@ function intel() {
 	source /opt/intel/oneapi/setvars.sh
 }
 
+# resource bash profile 
+function purge() {
+	source ~/.bash_profile
+}
+
+
+
+# aliases
+
+alias ll="ls -ltrh"       # fast ls
+alias c="clear"           # fast clear
+
+
+
+
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always' 
 export BASH_SILENCE_DEPRECATION_WARNING=1
