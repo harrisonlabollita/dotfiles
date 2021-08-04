@@ -10,7 +10,6 @@ map - <C-W><
 map = <C-W>>
 
 set title
-set number
 
 "======[set backgroun dark makes tmux pretty]=======
 set background=dark

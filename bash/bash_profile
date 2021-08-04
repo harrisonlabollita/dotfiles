@@ -20,18 +20,6 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 #Adding my custom bash scripts
 source ~/.my_custom_commands.sh
 
-#source intel compilers
-function intel() {
-	echo 'sourcing intel compilers: ifort and icc'
-	source /opt/intel/oneapi/setvars.sh
-}
-
-# resource bash profile 
-function purge() {
-	source ~/.bash_profile
-}
-
-
 
 # aliases
 
@@ -50,34 +38,43 @@ export XCRYSDEN_TOPDIR=/opt/local/share/xcrysden-1.5.60
 export XCRYSDEN_SCRATCH=/tmp
 
 
-# added by WIEN2k: BEGIN
-# --------------------------------------------------------
-function loadwien2k() {
-	intel
-	alias lsi="ls -aslp *.in*"
-	alias lso="ls -aslp *.output*"
-	alias lsd="ls -aslp *.def"
-	alias lsc="ls -aslp *.clm*"
-	alias lss="ls -aslp *.scf* */*.scf"
-	alias lse="ls -aslp *.error"
-	alias LS="ls -aslp | grep /"
-	alias pslapw="ps -ef |grep "lapw""
-	alias cdw="cd /Users/harrisonlabollita/WIEN2k"
-	if [ "$OMP_NUM_THREADS" = "" ]; then export OMP_NUM_THREADS=4; fi
-	#export LD_LIBRARY_PATH=.....
-	export EDITOR="vi"
-	export SCRATCH=/Users/harrisonlabollita/SCRATCH
-	if [ "$WIENROOT" = "" ]; then export WIENROOT=/Users/harrisonlabollita/software/commerical_dft_codes/wien2k/21.1; fi
-	export W2WEB_CASE_BASEDIR=/Users/harrisonlabollita/WIEN2k
-	export STRUCTEDIT_PATH=$WIENROOT/SRC_structeditor/bin
-	export PDFREADER=Preview
-	export PATH=$WIENROOT:$STRUCTEDIT_PATH:$WIENROOT/SRC_IRelast/script-elastic:$PATH:.
-	export OCTAVE_EXEC_PATH=${PATH}::
-	export OCTAVE_PATH=${STRUCTEDIT_PATH}::
+function load() {
+	if [[ "$1" == "wien2k"]]; then
+	# added by WIEN2k: BEGIN
+	# --------------------------------------------------------
+		alias lsi="ls -aslp *.in*"
+		alias lso="ls -aslp *.output*"
+		alias lsd="ls -aslp *.def"
+		alias lsc="ls -aslp *.clm*"
+		alias lss="ls -aslp *.scf* */*.scf"
+		alias lse="ls -aslp *.error"
+		alias LS="ls -aslp | grep /"
+		alias pslapw="ps -ef |grep "lapw""
+		alias cdw="cd /Users/harrisonlabollita/WIEN2k"
+		if [ "$OMP_NUM_THREADS" = "" ]; then export OMP_NUM_THREADS=4; fi
+		#export LD_LIBRARY_PATH=.....
+		export EDITOR="vi"
+		export SCRATCH=/Users/harrisonlabollita/SCRATCH
+		if [ "$WIENROOT" = "" ]; then export WIENROOT=/Users/harrisonlabollita/software/commerical_dft_codes/wien2k/21.1; fi
+		export W2WEB_CASE_BASEDIR=/Users/harrisonlabollita/WIEN2k
+		export STRUCTEDIT_PATH=$WIENROOT/SRC_structeditor/bin
+		export PDFREADER=Preview
+		export PATH=$WIENROOT:$STRUCTEDIT_PATH:$WIENROOT/SRC_IRelast/script-elastic:$PATH:.
+		export OCTAVE_EXEC_PATH=${PATH}::
+		export OCTAVE_PATH=${STRUCTEDIT_PATH}::
 
-	export PATH=$PATH:$WIENROOT:.
-	ulimit -s unlimited
+		export PATH=$PATH:$WIENROOT:.
+		#ulimit -s unlimited
+	elif [[ "$1" == "intel" ]]; then
+		echo 'sourcing intel compilers: ifort and icc'
+		source /opt/intel/oneapi/setvars.sh
+	else
+		echo 'purging loaded environments'
+		source ~/.bash_profile
+	fi
 }
+		
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
