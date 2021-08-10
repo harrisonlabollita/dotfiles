@@ -39,7 +39,7 @@ export XCRYSDEN_SCRATCH=/tmp
 
 
 function load() {
-	if [[ "$1" == "wien2k"]]; then
+	if [[ "$1" == "wien2k" ]]; then
 	# added by WIEN2k: BEGIN
 	# --------------------------------------------------------
 		alias lsi="ls -aslp *.in*"
@@ -94,3 +94,9 @@ if [[ -n $TMUX  ]]; then
 	conda deactivate
 	conda activate fermi
 fi
+# DMFTTOOLS
+export DMFTTOOLS_PATH=/Users/harrisonlabollita/software/dmftTools/src
+alias init_dftdmft="$DMFTTOOLS_PATH/csc/init_dftdmft"
+alias run_dftdmft="$DMFTTOOLS_PATH/csc/run_dftdmft"
+alias runs_osdmft="$DMFTOOLS_PATH/singleshot/run.py"
+# END DMFTTOOLS
