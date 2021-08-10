@@ -98,5 +98,5 @@ fi
 export DMFTTOOLS_PATH=/Users/harrisonlabollita/software/dmftTools/src
 alias init_dftdmft="$DMFTTOOLS_PATH/csc/init_dftdmft"
 alias run_dftdmft="$DMFTTOOLS_PATH/csc/run_dftdmft"
-alias runs_osdmft="$DMFTOOLS_PATH/singleshot/run.py"
+alias run_osdmft="python $DMFTTOOLS_PATH/singleshot/run.py"
 # END DMFTTOOLS
