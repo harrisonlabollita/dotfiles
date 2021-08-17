@@ -52,7 +52,9 @@ nnoremap : ;
 
 "===== [ syntax Highlighting] ===========
 syntax on
-colorscheme harry
+colorscheme peachpuff
+highlight Comment cterm=bold ctermfg=LightGreen
+"colorscheme harry
 highlight LineNr ctermfg=white
 "let g:github_colors_soft = 1
 "highlight Comment cterm=bold
