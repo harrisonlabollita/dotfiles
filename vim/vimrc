@@ -51,13 +51,35 @@ nnoremap : ;
 "endfunction
 
 "===== [ syntax Highlighting] ===========
-syntax on
-colorscheme peachpuff
-highlight Comment cterm=bold ctermfg=LightGreen
-"colorscheme harry
-highlight LineNr ctermfg=white
-"let g:github_colors_soft = 1
-"highlight Comment cterm=bold
+"===== [ python format ]
+function! SetupPython()
+	syntax on
+	colorscheme peachpuff
+	highlight Comment cterm=bold ctermfg=LightGreen
+	highlight LineNr ctermfg=white
+endfunction
+
+"=====[ Julia format ]
+function! SetupJulia()
+	set softtabstop=4           " Determines the behaviour of TAB and BACKSPACE keys with expandtab.
+	set tabstop=4               " Sets tabstops to a width of four columns.
+	set shiftwidth=4            " Determines the results of >>, <<, and ==.
+	setlocal expandtab          " Replaces tabs with spaces.
+	syntax on
+	colorscheme peachpuff
+	highlight Comment cterm=bold ctermfg=LightGreen
+	highlight LineNr ctermfg=white
+endfunction
+
+augroup setPython
+	autocmd!
+	autocmd BufEnter *.py :call SetupPython()
+augroup END
+
+augroup setJulia
+	autocmd!
+	autocmd BufEnter *.jl :call SetupJulia()
+augroup END
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -115,10 +137,6 @@ augroup AutoMkdir
 	autocmd BufNewFile * :call EnsureDirExists()
 augroup END
 
-"============= [ Julia format ] ============
-augroup JuliaSyntax
-	autocmd BufEnter *.jl set softtabstop=4
-augroup END
 
 
 "============== [ ALE ] ==================
@@ -152,3 +170,5 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'cormacrelf/vim-colors-github'
 call plug#end()
+
+syntax off
