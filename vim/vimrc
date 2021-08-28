@@ -51,7 +51,13 @@ nnoremap : ;
 "endfunction
 
 "===== [ syntax Highlighting] ===========
-"===== [ python format ]
+"[generic]
+syntax on
+colorscheme peachpuff
+highlight Comment cterm=bold ctermfg=LightGreen
+highlight LineNr ctermfg=white
+
+"[ python format ]
 function! SetupPython()
 	syntax on
 	colorscheme peachpuff
@@ -59,7 +65,7 @@ function! SetupPython()
 	highlight LineNr ctermfg=white
 endfunction
 
-"=====[ Julia format ]
+"[ Julia format ]
 function! SetupJulia()
 	set softtabstop=4           " Determines the behaviour of TAB and BACKSPACE keys with expandtab.
 	set tabstop=4               " Sets tabstops to a width of four columns.

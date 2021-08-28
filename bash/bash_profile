@@ -24,8 +24,6 @@ source ~/.my_custom_commands.sh
 # aliases
 
 alias ll="ls -ltrh"       # fast ls
-alias c="clear"           # fast clear
-
 
 
 
@@ -68,6 +66,8 @@ function load() {
 	elif [[ "$1" == "intel" ]]; then
 		echo 'sourcing intel compilers: ifort and icc'
 		source /opt/intel/oneapi/setvars.sh
+	elif [[ "$1" == "flapw" ]]; then
+		alias flapwmbpt="/Users/harrisonlabollita/software/commerical_dft_codes/FlapwMBPT.2106/src/FlapwMBPT.exe"
 	else
 		echo 'purging loaded environments'
 		source ~/.bash_profile
