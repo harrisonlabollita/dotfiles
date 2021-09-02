@@ -148,6 +148,7 @@ augroup END
 "============== [ ALE ] ==================
 highlight AleErrorLine      cterm=bold  ctermfg=red 
 highlight AleWarningLine    cterm=bold  ctermfg=magenta
+let g:ale_enabled                    = 0
 let g:ale_set_loclist 		     = 0
 let g:ale_set_quickfix		     = 1
 let g:ale_set_signs		     = 0
@@ -176,5 +177,3 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'cormacrelf/vim-colors-github'
 call plug#end()
-
-syntax off
