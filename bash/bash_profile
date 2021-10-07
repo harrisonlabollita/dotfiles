@@ -22,8 +22,7 @@ source ~/.my_custom_commands.sh
 
 
 # aliases
-
-alias ll="ls -ltrh"       # fast ls
+alias cdw="cd ~/botana_group/Projects/"
 
 
 
@@ -48,7 +47,7 @@ function load() {
 		alias lse="ls -aslp *.error"
 		alias LS="ls -aslp | grep /"
 		alias pslapw="ps -ef |grep "lapw""
-		alias cdw="cd /Users/harrisonlabollita/WIEN2k"
+		alias cdww="cd /Users/harrisonlabollita/WIEN2k"
 		if [ "$OMP_NUM_THREADS" = "" ]; then export OMP_NUM_THREADS=4; fi
 		#export LD_LIBRARY_PATH=.....
 		export EDITOR="vi"
@@ -100,3 +99,5 @@ alias init_dftdmft="$DMFTTOOLS_PATH/csc/init_dftdmft"
 alias run_dftdmft="$DMFTTOOLS_PATH/csc/run_dftdmft"
 alias run_osdmft="python $DMFTTOOLS_PATH/singleshot/run.py"
 # END DMFTTOOLS
+# QUESTAAL
+export PATH="/Users/harrisonlabollita/software/apps/lm/bin:$PATH"
