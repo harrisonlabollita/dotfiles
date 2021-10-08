@@ -111,11 +111,11 @@ highlight ColorColumn ctermbg=NONE
 "spelled correctly in
 
 set spelllang=en
-highlight SpellBad cterm=bold ctermfg=red ctermbg=black
-augroup DiffSpellCheck
-	autocmd!
-	autocmd BufEnter *.md,*.tex set spell
-augroup END
+"highlight SpellBad cterm=bold ctermfg=red ctermbg=black
+"augroup DiffSpellCheck
+"	autocmd!
+"	autocmd BufEnter *.md,*.tex set spell
+"augroup END
 
 
 
