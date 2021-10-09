@@ -1,6 +1,7 @@
-set nonumber
-set norelativenumber
 let mapleader = " "
+set title
+set number
+set relativenumber
 
 "===== [ switch back and forth between vim windows ] ===========
 map tt <C-W>w
@@ -9,9 +10,6 @@ map tt <C-W>w
 map - <C-W><
 map = <C-W>>
 
-set title
-set number
-set relativenumber
 
 "======[set backgroun dark makes tmux pretty]=======
 set background=dark
@@ -36,6 +34,8 @@ inoremap <expr> <TAB> InsertTabWrapper()
 "===== [ never press Shift+; again] ===========
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 "augroup AutoProfile
 "	au!
@@ -145,6 +145,12 @@ augroup AutoMkdir
 	autocmd BufNewFile * :call EnsureDirExists()
 augroup END
 
+
+"===== [ Tabularize mapping ] ===========
+if exists(":Tabularize")
+	vnoremap <Leader>e = :Tabularize /=<CR>
+	nnoremap <Leader>e = :Tabularize /=<CR>
+endif
 
 
 "============== [ ALE ] ==================
