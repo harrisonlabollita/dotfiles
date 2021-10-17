@@ -15,7 +15,8 @@ map = <C-W>>
 set background=dark
 
 "======[auto reload]=======
-autocmd! bufwritepost .vimrc source % 
+autocmd! bufwritepost ~/.vimrc source % 
+
 "======[ better clipboard] =======
 set clipboard=unnamed
 
@@ -29,6 +30,7 @@ function! InsertTabWrapper()
 		return "\<C-p>"
 	endif
 endfunction
+
 inoremap <expr> <TAB> InsertTabWrapper()
 
 "===== [ never press Shift+; again] ===========
@@ -147,28 +149,26 @@ augroup END
 
 
 "===== [ Tabularize mapping ] ===========
-if exists(":Tabularize")
-	vnoremap <Leader>e = :Tabularize /=<CR>
-	nnoremap <Leader>e = :Tabularize /=<CR>
-endif
+"if exists(":Tabularize")
+vnoremap ee = :Tabularize /=<CR>
+"endif
 
 
 "============== [ ALE ] ==================
-highlight AleErrorLine      cterm=bold  ctermfg=red 
-highlight AleWarningLine    cterm=bold  ctermfg=magenta
-let g:ale_enabled                    = 0
-let g:ale_set_loclist 		     = 0
-let g:ale_set_quickfix		     = 1
-let g:ale_set_signs		     = 0
-let g:ale_linters = {
-		\ 'python' : ['flake8'], 
-		\     'latex'  : ['chktex'],
-		\     'tex'    : ['all']
-		\}
-let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E265,E266,E501'
-
+"highlight AleErrorLine      cterm=bold  ctermfg=red 
+"highlight AleWarningLine    cterm=bold  ctermfg=magenta
+"let g:ale_enabled                    = 0
+"let g:ale_set_loclist 		     = 0
+"let g:ale_set_quickfix		     = 1
+"let g:ale_set_signs		     = 0
+"let g:ale_linters = {
+"""		\ 'python' : ['flake8'], 
+"		\     'latex'  : ['chktex'],
+"		\     'tex'    : ['all']
+"		\}
+"let g:ale_python_flake8_options = '--ignore=E221,E226,E251,E265,E266,E501'
 "================== [ AIRLINE ] =================
-let g:airline#extensions#ale#enabled = 1
+"let g:airline#extensions#ale#enabled = 1
 "let g:airline_theme = "github"
 let g:airline_theme = "monochrome"
 
@@ -183,7 +183,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'godlygeek/tabular'
 call plug#end()
