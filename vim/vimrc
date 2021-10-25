@@ -10,17 +10,21 @@ map tt <C-W>w
 map - <C-W><
 map = <C-W>>
 
+"===== [ fzf ] ===========
+set rtp+=/opt/local/share/fzf/vim
 
-"======[set backgroun dark makes tmux pretty]=======
-set background=dark
+"============[ matplotlib colors ] ================
+set complete+=k~/.vim/matplotlib/matplotlib.txt"
+
 
 "======[auto reload]=======
-autocmd! bufwritepost ~/.vimrc source % 
+"autocmd! bufwritepost ~/.vimrc source % 
 
 "======[ better clipboard] =======
 set clipboard=unnamed
 
 let g:latex_to_unicode_file_types = ".*"
+
 "===== [ smarter tab ] ===========
 function! InsertTabWrapper()
 	let col = col('.') - 1
@@ -36,37 +40,23 @@ inoremap <expr> <TAB> InsertTabWrapper()
 "===== [ never press Shift+; again] ===========
 nnoremap ; :
 nnoremap : ;
+
 vnoremap ; :
 vnoremap : ;
-
-"augroup AutoProfile
-"	au!
-"	autocmd BufEnter *	call s:ChangeProfile("editor")
-"	autocmd VimLeave * 	call s:ChangeProfile("default")
-"augroup END
-
-"function! s:ChangeProfile (name)
-"	let name = a:name
-"	if name == "editor"
-"		silent exec "! osascript ~/.vim/bin/editor_profile.scpt"
-"	elseif name == "default"
-"		silent exec "! osascript ~/.vim/bin/default_profile.scpt"
-"	endif
-"endfunction
 
 "===== [ syntax Highlighting] ===========
 "[generic]
 syntax on
-colorscheme peachpuff
-highlight Comment cterm=bold ctermfg=LightGreen
-highlight LineNr ctermfg=white
+colorscheme gruvbox
+"highlight Comment cterm=bold ctermfg=LightGreen
+"highlight LineNr ctermfg=white
 
 "[ python format ]
 function! SetupPython()
 	syntax on
-	colorscheme peachpuff
-	highlight Comment cterm=bold ctermfg=LightGreen
-	highlight LineNr ctermfg=white
+	colorscheme gruvbox
+	"highlight Comment cterm=bold ctermfg=LightGreen
+	"highlight LineNr ctermfg=white
 endfunction
 
 "[ Julia format ]
@@ -76,9 +66,47 @@ function! SetupJulia()
 	set shiftwidth=4            " Determines the results of >>, <<, and ==.
 	setlocal expandtab          " Replaces tabs with spaces.
 	syntax on
-	colorscheme peachpuff
-	highlight Comment cterm=bold ctermfg=LightGreen
-	highlight LineNr ctermfg=white
+	colorscheme gruvbox
+	"highlight Comment cterm=bold ctermfg=LightGreen
+	"highlight LineNr ctermfg=white
+endfunction
+
+function! SetupFortran()
+	let fortran_free_source=1
+	let fortran_do_enddo=1
+	filetype plugin indent on
+	syntax on
+
+	" Turn on line numbers and
+	" row/column numbers
+	set nu
+	set ruler
+
+	" Make vim echo commands as they
+	" are being entered.
+	set showcmd
+
+	" Set tabstops to two spaces
+	" and ensure tab characters are
+	" expanded into spaces.
+	set smarttab
+	set expandtab
+	set tabstop=2
+	set shiftwidth=2
+
+	" Fix backspace key
+	set bs=2
+
+	" Set up searching so
+	" that it jumps to matches
+	" as the word is being
+	" entered and is case-insensitive
+	set incsearch
+	set ignorecase
+	set smartcase
+	"colorscheme gruvbox
+	"highlight Comment cterm=bold ctermfg=LightGreen
+	"highlight LineNr ctermfg=white
 endfunction
 
 augroup setPython
@@ -91,13 +119,18 @@ augroup setJulia
 	autocmd BufEnter *.jl :call SetupJulia()
 augroup END
 
+augroup setFortran
+	autocmd!
+	autocmd BufEnter *.f90 :call SetupFortran()
+augroup END
+
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 
 "===== [ highlight search color ] ===========
 set hlsearch
-hi Search ctermbg=LightBlue
+highlight Search ctermbg=blue
 
 
 "===== [ map go to open files underneath the cursor ] ===========
@@ -118,8 +151,6 @@ set spelllang=en
 "	autocmd!
 "	autocmd BufEnter *.md,*.tex set spell
 "augroup END
-
-
 
 "==========[ Make a new file without worrying ] =====================
 function! AskQuit (msg, options, quit_option)
@@ -149,9 +180,9 @@ augroup END
 
 
 "===== [ Tabularize mapping ] ===========
-"if exists(":Tabularize")
-vnoremap ee = :Tabularize /=<CR>
-"endif
+if exists(":Tabularize")
+	vnoremap ee = :Tabularize /=<CR>
+endif
 
 
 "============== [ ALE ] ==================
@@ -184,6 +215,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'dense-analysis/ale'
-Plug 'cormacrelf/vim-colors-github'
+"Plug 'cormacrelf/vim-colors-github'
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+"Plug 'turbio/bracey.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+"======[set backgroun dark makes tmux pretty]=======
+set background=dark

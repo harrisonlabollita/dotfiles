@@ -25,7 +25,6 @@ source ~/.my_custom_commands.sh
 alias cdw="cd ~/botana_group/Projects/"
 
 
-
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always' 
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -101,3 +100,7 @@ alias run_osdmft="python $DMFTTOOLS_PATH/singleshot/run.py"
 # END DMFTTOOLS
 # QUESTAAL
 export PATH="/Users/harrisonlabollita/software/apps/lm/bin:$PATH"
+
+source ~/.config/fzf/completion.bash
+source ~/.config/fzf/tab-completion.bash
+#bind -x '"\t": fzf_bash_completion'
