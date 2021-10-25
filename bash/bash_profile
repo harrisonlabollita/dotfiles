@@ -28,6 +28,8 @@ alias cdw="cd ~/botana_group/Projects/"
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always' 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+
 export PS1="[\w] "
 #####XCrySDen#######
 export XCRYSDEN_TOPDIR=/opt/local/share/xcrysden-1.5.60
