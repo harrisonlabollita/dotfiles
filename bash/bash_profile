@@ -23,6 +23,7 @@ source ~/.my_custom_commands.sh
 
 # aliases
 alias cdw="cd ~/botana_group/Projects/"
+alias cds="cd ~/software/"
 
 
 export CLICOLOR=1
@@ -74,7 +75,12 @@ function load() {
 	fi
 }
 		
-
+# source shell scripts
+if [ -d "$HOME/shell-scripts" ]; then 
+   for file in "$HOME/shell-scripts/*"; do
+	   source $file
+   done
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
