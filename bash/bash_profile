@@ -100,15 +100,11 @@ if [[ -n $TMUX  ]]; then
 	conda deactivate
 	conda activate fermi
 fi
-# DMFTTOOLS
-export DMFTTOOLS_PATH=/Users/harrisonlabollita/software/dmftTools/src
-alias init_dftdmft="$DMFTTOOLS_PATH/csc/init_dftdmft"
-alias run_dftdmft="$DMFTTOOLS_PATH/csc/run_dftdmft"
-alias run_osdmft="python $DMFTTOOLS_PATH/singleshot/run.py"
-# END DMFTTOOLS
+
 # QUESTAAL
 export PATH="/Users/harrisonlabollita/software/apps/lm/bin:$PATH"
-
+# TRIQS DMFT TOOLKIT UNDER DEVELOPMENT
+export PATH="/Users/harrisonlabollita/software/commerical_codes/TRIQS/triqs_dmft_tk/bin:$PATH"
 source ~/.config/fzf/completion.bash
 source ~/.config/fzf/tab-completion.bash
 #bind -x '"\t": fzf_bash_completion'
