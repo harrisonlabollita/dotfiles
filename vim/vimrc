@@ -1,7 +1,9 @@
 
 set title
 set number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set relativenumber
+
 
 "===== [ switch back and forth between vim windows ] ===========
 map tt <C-W>w
@@ -47,8 +49,8 @@ vnoremap : ;
 
 "===== [ syntax Highlighting] ===========
 "[generic]
-syntax on
-colorscheme gruvbox
+syntax off
+"colorscheme gruvbox
 "highlight Comment cterm=bold ctermfg=LightGreen
 "highlight LineNr ctermfg=white
 
@@ -112,17 +114,17 @@ endfunction
 
 augroup setPython
 	autocmd!
-	autocmd BufEnter *.py :call SetupPython()
+	autocmd BufEnter FileType python :call SetupPython()
 augroup END
 
 augroup setJulia
 	autocmd!
-	autocmd BufEnter *.jl :call SetupJulia()
+	autocmd BufEnter FileType julia :call SetupJulia()
 augroup END
 
 augroup setFortran
 	autocmd!
-	autocmd BufEnter *.f90 :call SetupFortran()
+	au BufNewFile,BufRead *.f,*.f90,*.F,*.F90 :call SetupFortran()
 augroup END
 
 "===== [ next/previous buffer ] ===========
@@ -201,7 +203,7 @@ endif
 "================== [ AIRLINE ] =================
 "let g:airline#extensions#ale#enabled = 1
 "let g:airline_theme = "github"
-"let g:airline_theme = "monochrome"
+let g:airline_theme = "monochrome"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 "============== [ vim-plug ] ==================
@@ -229,3 +231,4 @@ call plug#end()
 
 "======[set backgroun dark makes tmux pretty]=======
 set background=dark
+syntax off
