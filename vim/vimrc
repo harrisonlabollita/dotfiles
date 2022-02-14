@@ -1,7 +1,6 @@
 
 set title
 set number
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set relativenumber
 
 
@@ -49,10 +48,10 @@ vnoremap : ;
 
 "===== [ syntax Highlighting] ===========
 "[generic]
-syntax off
-"colorscheme gruvbox
-"highlight Comment cterm=bold ctermfg=LightGreen
-"highlight LineNr ctermfg=white
+syntax on
+colorscheme peachpuff
+highlight Comment cterm=bold ctermfg=LightGreen
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 "[ python format ]
 function! SetupPython()
@@ -111,21 +110,6 @@ function! SetupFortran()
 	"highlight Comment cterm=bold ctermfg=LightGreen
 	"highlight LineNr ctermfg=white
 endfunction
-
-augroup setPython
-	autocmd!
-	autocmd BufEnter FileType python :call SetupPython()
-augroup END
-
-augroup setJulia
-	autocmd!
-	autocmd BufEnter FileType julia :call SetupJulia()
-augroup END
-
-augroup setFortran
-	autocmd!
-	au BufNewFile,BufRead *.f,*.f90,*.F,*.F90 :call SetupFortran()
-augroup END
 
 "===== [ next/previous buffer ] ===========
 nnoremap <C-n> :bn<CR>
@@ -230,5 +214,5 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 "======[set backgroun dark makes tmux pretty]=======
-set background=dark
-syntax off
+"set background=dark
+"syntax off
