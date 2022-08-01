@@ -61,12 +61,20 @@ function! SetupPython()
 	"highlight LineNr ctermfg=white
 endfunction
 
+set tabstop=4       " Set tabstops to a width of four columns.
+set softtabstop=4   " Determine the behaviour of TAB and BACKSPACE keys with expandtab.
+set shiftwidth=4    " Determine the results of >>, <<, and ==.
+
+" Identify .jl files as Julia. If using julia-vim plugin, this is redundant.
+"autocmd BufRead,BufNewFile *.jl set filetype=julia
+
 "[ Julia format ]
+"
+"set softtabstop=4           " Determines the behaviour of TAB and BACKSPACE keys with expandtab.
+"set tabstop=4               " Sets tabstops to a width of four columns.
+"set shiftwidth=4            " Determines the results of >>, <<, and ==.
+"setlocal expandtab          " Replaces tabs with spaces.
 function! SetupJulia()
-	set softtabstop=4           " Determines the behaviour of TAB and BACKSPACE keys with expandtab.
-	set tabstop=4               " Sets tabstops to a width of four columns.
-	set shiftwidth=4            " Determines the results of >>, <<, and ==.
-	setlocal expandtab          " Replaces tabs with spaces.
 	syntax on
 	colorscheme gruvbox
 	"highlight Comment cterm=bold ctermfg=LightGreen
@@ -211,6 +219,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 "Plug 'turbio/bracey.vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 "======[set backgroun dark makes tmux pretty]=======
