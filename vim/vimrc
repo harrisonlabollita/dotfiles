@@ -3,7 +3,6 @@ set title
 set number
 set relativenumber
 
-
 "===== [ switch back and forth between vim windows ] ===========
 map tt <C-W>w
 
@@ -17,7 +16,6 @@ nnoremap <C-f> :Files<Cr>
 
 "============[ matplotlib colors ] ================
 set complete+=k~/.vim/matplotlib/matplotlib.txt"
-
 
 "======[auto reload]=======
 "autocmd! bufwritepost ~/.vimrc source % 
@@ -48,91 +46,47 @@ vnoremap : ;
 
 "===== [ syntax Highlighting] ===========
 "[generic]
-syntax on
-colorscheme peachpuff
+syntax enable
+colorscheme oldpeach
+"set background=dark
+"let g:gruvbox_contrast_dark = 'hard'
 highlight Comment cterm=bold ctermfg=LightGreen
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-"[ python format ]
-function! SetupPython()
-	syntax on
-	colorscheme gruvbox
-	"highlight Comment cterm=bold ctermfg=LightGreen
-	"highlight LineNr ctermfg=white
-endfunction
+set expandtab
 
 set tabstop=4       " Set tabstops to a width of four columns.
 set softtabstop=4   " Determine the behaviour of TAB and BACKSPACE keys with expandtab.
 set shiftwidth=4    " Determine the results of >>, <<, and ==.
 
+set ai
+set si
+set wrap
+
 " Identify .jl files as Julia. If using julia-vim plugin, this is redundant.
 "autocmd BufRead,BufNewFile *.jl set filetype=julia
 
-"[ Julia format ]
-"
-"set softtabstop=4           " Determines the behaviour of TAB and BACKSPACE keys with expandtab.
-"set tabstop=4               " Sets tabstops to a width of four columns.
-"set shiftwidth=4            " Determines the results of >>, <<, and ==.
-"setlocal expandtab          " Replaces tabs with spaces.
-function! SetupJulia()
-	syntax on
-	colorscheme gruvbox
-	"highlight Comment cterm=bold ctermfg=LightGreen
-	"highlight LineNr ctermfg=white
-endfunction
-
-function! SetupFortran()
-	let fortran_free_source=1
-	let fortran_do_enddo=1
-	filetype plugin indent on
-	syntax on
-
-	" Turn on line numbers and
-	" row/column numbers
-	set nu
-	set ruler
-
-	" Make vim echo commands as they
-	" are being entered.
-	set showcmd
-
-	" Set tabstops to two spaces
-	" and ensure tab characters are
-	" expanded into spaces.
-	set smarttab
-	set expandtab
-	set tabstop=2
-	set shiftwidth=2
-
-	" Fix backspace key
-	set bs=2
-
-	" Set up searching so
-	" that it jumps to matches
-	" as the word is being
-	" entered and is case-insensitive
-	set incsearch
-	set ignorecase
-	set smartcase
-	"colorscheme gruvbox
-	"highlight Comment cterm=bold ctermfg=LightGreen
-	"highlight LineNr ctermfg=white
-endfunction
-
 "===== [ next/previous buffer ] ===========
-nnoremap <C-n> :bn<CR>
+nnoremap <C-m> :bn<CR>
 nnoremap <C-p> :bp<CR>
 
 "===== [ highlight search color ] ===========
 set hlsearch
-
+set incsearch
+set showmatch
+set noerrorbells
+set novisualbell
 
 "===== [ map go to open files underneath the cursor ] ===========
 nnoremap go :!open <cfile><CR>
 
+"===== [ fzf mappings ] ===========
+nnoremap <silent> <C-f> :Files<CR>
+
 "===== [ make 81st column stand out ] ===========
 "Courtsey Damain Conway : https://www.youtube.com/watch?v=aHm36-na4-4
 highlight ColorColumn ctermbg=NONE
+
 
 
 "==========[ spell checking ] =====================
@@ -173,10 +127,6 @@ augroup AutoMkdir
 augroup END
 
 
-"===== [ Tabularize mapping ] ===========
-if exists(":Tabularize")
-	vnoremap ee = :Tabularize /=<CR>
-endif
 
 
 "============== [ ALE ] ==================
