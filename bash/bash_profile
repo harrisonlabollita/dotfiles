@@ -15,6 +15,21 @@
 
 # MacPorts Installer addition on 2018-12-12_at_07:23:51: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/Users/harrisonlabollita/Library/Python/3.10/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LIBRARY_PATH="/usr/local/opt/llvm/lib:$LIBRARY_PATH"
+export CC=/usr/local/opt/llvm/bin/clang
+export CXX=/usr/local/opt/llvm/bin/clang++
+
+TRIQSINSTALLDIR=/Users/harrisonlabollita/software/triqs_build/installation
+export TRIQS_ROOT=${TRIQSINSTALLDIR}
+export PATH=${TRIQSINSTALLDIR}/bin:$PATH
+export LIBRARY_PATH=${TRIQSINSTALLDIR}/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=${TRIQSINSTALLDIR}/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=${TRIQSINSTALLDIR}/lib/python3.10/site-packages:$PYTHONPATH
+export CMAKE_PREFIX_PATH=${TRIQSINSTALLDIR}/lib/cmake/triqs:$CMAKE_PREFIX_PATH
+export CMAKE_PREFIX_PATH=${TRIQSINSTALLDIR}/lib/cmake/cpp2py:$CMAKE_PREFIX_PATH
+
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 #Adding my custom bash scripts
@@ -34,8 +49,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export PS1="[\w] "
 #####XCrySDen#######
-export XCRYSDEN_TOPDIR=/opt/local/share/xcrysden-1.5.60
-export XCRYSDEN_SCRATCH=/tmp
+#export XCRYSDEN_TOPDIR=/opt/local/share/xcrysden-1.5.60
+#export XCRYSDEN_SCRATCH=/tmp
 
 
 function load() {
@@ -96,11 +111,12 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
-if [[ -n $TMUX  ]]; then 
-	conda deactivate
-	conda activate fermi
-fi
+conda deactivate
+
+source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.2
+
 
 # QUESTAAL
 export PATH="/Users/harrisonlabollita/software/apps/lm/bin:$PATH"
