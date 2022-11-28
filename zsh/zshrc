@@ -127,7 +127,7 @@ source ~/.my_custom_commands.sh
 # aliases
 alias cdw="cd ~/botana_group/Projects/"
 alias cds="cd ~/software/"
-alias lsh="ls -ltrh"
+alias lsh="ls -ltrha"
 
 
 export CLICOLOR=1
