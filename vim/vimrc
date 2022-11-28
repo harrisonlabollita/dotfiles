@@ -1,7 +1,7 @@
 
 set title
 set number
-set relativenumber
+"set relativenumber
 
 "===== [ switch back and forth between vim windows ] ===========
 map tt <C-W>w
@@ -18,7 +18,8 @@ nnoremap <C-f> :Files<Cr>
 "======[ NERDtree ] ==========
 "autocmd VimEnter * NERDTree | wincmd p " open NERDTree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+"autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 
